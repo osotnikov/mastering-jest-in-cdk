@@ -1,0 +1,713 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "GilmoreEvProductsStatefulStack": {
+        "id": "GilmoreEvProductsStatefulStack",
+        "path": "GilmoreEvProductsStatefulStack",
+        "children": {
+          "Table": {
+            "id": "Table",
+            "path": "GilmoreEvProductsStatefulStack/Table",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "GilmoreEvProductsStatefulStack/Table/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
+                  "aws:cdk:cloudformation:props": {
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "id",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "billingMode": "PAY_PER_REQUEST",
+                    "keySchema": [
+                      {
+                        "attributeName": "id",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "pointInTimeRecoverySpecification": {
+                      "pointInTimeRecoveryEnabled": false
+                    },
+                    "tableName": "gilmore-ev-products-table-dev"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnTable",
+                  "version": "2.162.1"
+                }
+              },
+              "ScalingRole": {
+                "id": "ScalingRole",
+                "path": "GilmoreEvProductsStatefulStack/Table/ScalingRole",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.162.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_dynamodb.Table",
+              "version": "2.162.1"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "GilmoreEvProductsStatefulStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "GilmoreEvProductsStatefulStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.162.1"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "GilmoreEvProductsStatefulStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.162.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "Exports": {
+            "id": "Exports",
+            "path": "GilmoreEvProductsStatefulStack/Exports",
+            "children": {
+              "Output{\"Fn::GetAtt\":[\"TableCD117FA1\",\"Arn\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"TableCD117FA1\",\"Arn\"]}",
+                "path": "GilmoreEvProductsStatefulStack/Exports/Output{\"Fn::GetAtt\":[\"TableCD117FA1\",\"Arn\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.162.1"
+                }
+              },
+              "Output{\"Ref\":\"TableCD117FA1\"}": {
+                "id": "Output{\"Ref\":\"TableCD117FA1\"}",
+                "path": "GilmoreEvProductsStatefulStack/Exports/Output{\"Ref\":\"TableCD117FA1\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.162.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "GilmoreEvProductsStatefulStack/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.162.1"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "GilmoreEvProductsStatefulStack/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.162.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.162.1"
+        }
+      },
+      "GilmoreEvProductsStatelessStack": {
+        "id": "GilmoreEvProductsStatelessStack",
+        "path": "GilmoreEvProductsStatelessStack",
+        "children": {
+          "CreateProductLambda": {
+            "id": "CreateProductLambda",
+            "path": "GilmoreEvProductsStatelessStack/CreateProductLambda",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.162.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.162.1"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "dynamodb:BatchWriteItem",
+                                    "dynamodb:DeleteItem",
+                                    "dynamodb:DescribeTable",
+                                    "dynamodb:PutItem",
+                                    "dynamodb:UpdateItem"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::ImportValue": "GilmoreEvProductsStatefulStack:ExportsOutputFnGetAttTableCD117FA1ArnE2C8C204"
+                                    },
+                                    {
+                                      "Ref": "AWS::NoValue"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "CreateProductLambdaServiceRoleDefaultPolicyE1185464",
+                            "roles": [
+                              {
+                                "Ref": "CreateProductLambdaServiceRoleDDA15AE7"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.162.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.162.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.162.1"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.162.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.162.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.162.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "GilmoreEvProductsStatelessStack/CreateProductLambda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                      },
+                      "s3Key": "f1c287e19d6ab3d5b57ee99b12424b360db890bc4d38b225fe81a2d15d2f0b94.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "LOG_LEVEL": "DEBUG",
+                        "POWERTOOLS_LOGGER_LOG_EVENT": "true",
+                        "POWERTOOLS_LOGGER_SAMPLE_RATE": "1",
+                        "POWERTOOLS_TRACE_ENABLED": "enabled",
+                        "POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS": "captureHTTPsRequests",
+                        "POWERTOOLS_SERVICE_NAME": "gilmore-ev-service-dev",
+                        "POWERTOOLS_TRACER_CAPTURE_RESPONSE": "captureResult",
+                        "POWERTOOLS_METRICS_NAMESPACE": "gilmore-ev-dev",
+                        "TABLE_NAME": {
+                          "Fn::ImportValue": "GilmoreEvProductsStatefulStack:ExportsOutputRefTableCD117FA1D18A8047"
+                        }
+                      }
+                    },
+                    "functionName": "create-product-lambda-dev",
+                    "handler": "index.handler",
+                    "memorySize": 512,
+                    "role": {
+                      "Fn::GetAtt": [
+                        "CreateProductLambdaServiceRoleDDA15AE7",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.162.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+              "version": "2.162.1"
+            }
+          },
+          "Api": {
+            "id": "Api",
+            "path": "GilmoreEvProductsStatelessStack/Api",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "GilmoreEvProductsStatelessStack/Api/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                  "aws:cdk:cloudformation:props": {
+                    "description": "clothing ev products api dev",
+                    "name": "clothing-ev-products-api-dev"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnRestApi",
+                  "version": "2.162.1"
+                }
+              },
+              "Deployment": {
+                "id": "Deployment",
+                "path": "GilmoreEvProductsStatelessStack/Api/Deployment",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "GilmoreEvProductsStatelessStack/Api/Deployment/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                      "aws:cdk:cloudformation:props": {
+                        "description": "clothing ev products api dev",
+                        "restApiId": {
+                          "Ref": "ApiF70053CD"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.CfnDeployment",
+                      "version": "2.162.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.Deployment",
+                  "version": "2.162.1"
+                }
+              },
+              "DeploymentStage.api": {
+                "id": "DeploymentStage.api",
+                "path": "GilmoreEvProductsStatelessStack/Api/DeploymentStage.api",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "GilmoreEvProductsStatelessStack/Api/DeploymentStage.api/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                      "aws:cdk:cloudformation:props": {
+                        "deploymentId": {
+                          "Ref": "ApiDeploymentB17BE62D5e07c19362526c56fdd1a01b872c31c8"
+                        },
+                        "methodSettings": [
+                          {
+                            "httpMethod": "*",
+                            "resourcePath": "/*",
+                            "dataTraceEnabled": true,
+                            "loggingLevel": "INFO",
+                            "metricsEnabled": true
+                          }
+                        ],
+                        "restApiId": {
+                          "Ref": "ApiF70053CD"
+                        },
+                        "stageName": "api",
+                        "tracingEnabled": true
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.CfnStage",
+                      "version": "2.162.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.Stage",
+                  "version": "2.162.1"
+                }
+              },
+              "Endpoint": {
+                "id": "Endpoint",
+                "path": "GilmoreEvProductsStatelessStack/Api/Endpoint",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.162.1"
+                }
+              },
+              "Default": {
+                "id": "Default",
+                "path": "GilmoreEvProductsStatelessStack/Api/Default",
+                "children": {
+                  "v1": {
+                    "id": "v1",
+                    "path": "GilmoreEvProductsStatelessStack/Api/Default/v1",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GilmoreEvProductsStatelessStack/Api/Default/v1/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Fn::GetAtt": [
+                                "ApiF70053CD",
+                                "RootResourceId"
+                              ]
+                            },
+                            "pathPart": "v1",
+                            "restApiId": {
+                              "Ref": "ApiF70053CD"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                          "version": "2.162.1"
+                        }
+                      },
+                      "products": {
+                        "id": "products",
+                        "path": "GilmoreEvProductsStatelessStack/Api/Default/v1/products",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GilmoreEvProductsStatelessStack/Api/Default/v1/products/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                              "aws:cdk:cloudformation:props": {
+                                "parentId": {
+                                  "Ref": "Apiv1D42035C8"
+                                },
+                                "pathPart": "products",
+                                "restApiId": {
+                                  "Ref": "ApiF70053CD"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                              "version": "2.162.1"
+                            }
+                          },
+                          "POST": {
+                            "id": "POST",
+                            "path": "GilmoreEvProductsStatelessStack/Api/Default/v1/products/POST",
+                            "children": {
+                              "ApiPermission.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products": {
+                                "id": "ApiPermission.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products",
+                                "path": "GilmoreEvProductsStatelessStack/Api/Default/v1/products/POST/ApiPermission.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "CreateProductLambda6A261B7D",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:",
+                                          {
+                                            "Ref": "AWS::Region"
+                                          },
+                                          ":",
+                                          {
+                                            "Ref": "AWS::AccountId"
+                                          },
+                                          ":",
+                                          {
+                                            "Ref": "ApiF70053CD"
+                                          },
+                                          "/",
+                                          {
+                                            "Ref": "ApiDeploymentStageapi01526A9D"
+                                          },
+                                          "/POST/v1/products"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                  "version": "2.162.1"
+                                }
+                              },
+                              "ApiPermission.Test.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products": {
+                                "id": "ApiPermission.Test.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products",
+                                "path": "GilmoreEvProductsStatelessStack/Api/Default/v1/products/POST/ApiPermission.Test.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "CreateProductLambda6A261B7D",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:",
+                                          {
+                                            "Ref": "AWS::Region"
+                                          },
+                                          ":",
+                                          {
+                                            "Ref": "AWS::AccountId"
+                                          },
+                                          ":",
+                                          {
+                                            "Ref": "ApiF70053CD"
+                                          },
+                                          "/test-invoke-stage/POST/v1/products"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                  "version": "2.162.1"
+                                }
+                              },
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "GilmoreEvProductsStatelessStack/Api/Default/v1/products/POST/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                  "aws:cdk:cloudformation:props": {
+                                    "authorizationType": "NONE",
+                                    "httpMethod": "POST",
+                                    "integration": {
+                                      "type": "AWS_PROXY",
+                                      "uri": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":apigateway:",
+                                            {
+                                              "Ref": "AWS::Region"
+                                            },
+                                            ":lambda:path/2015-03-31/functions/",
+                                            {
+                                              "Fn::GetAtt": [
+                                                "CreateProductLambda6A261B7D",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/invocations"
+                                          ]
+                                        ]
+                                      },
+                                      "integrationHttpMethod": "POST"
+                                    },
+                                    "resourceId": {
+                                      "Ref": "Apiv1productsD88BAEED"
+                                    },
+                                    "restApiId": {
+                                      "Ref": "ApiF70053CD"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                  "version": "2.162.1"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                              "version": "2.162.1"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                          "version": "2.162.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                      "version": "2.162.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
+                  "version": "2.162.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.RestApi",
+              "version": "2.162.1"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "GilmoreEvProductsStatelessStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "GilmoreEvProductsStatelessStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.162.1"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "GilmoreEvProductsStatelessStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.162.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "GilmoreEvProductsStatelessStack/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.162.1"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "GilmoreEvProductsStatelessStack/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.162.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.162.1"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.4.2"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.162.1"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": "38.0.1",
+  "files": {
+    "f1c287e19d6ab3d5b57ee99b12424b360db890bc4d38b225fe81a2d15d2f0b94": {
+      "source": {
+        "path": "asset.f1c287e19d6ab3d5b57ee99b12424b360db890bc4d38b225fe81a2d15d2f0b94",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "f1c287e19d6ab3d5b57ee99b12424b360db890bc4d38b225fe81a2d15d2f0b94.zip",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "4fdc6fa026792633cf80bd91b4ae023968af1c56d77200a3fd35e413c34d78f8": {
+      "source": {
+        "path": "GilmoreEvProductsStatelessStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "4fdc6fa026792633cf80bd91b4ae023968af1c56d77200a3fd35e413c34d78f8.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

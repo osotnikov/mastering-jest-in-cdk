@@ -1,0 +1,19 @@
+{
+  "version": "38.0.1",
+  "files": {
+    "fb340252bb4022b615c9ccddda7559ae464ca81e681dde2b93a230a50edd1eac": {
+      "source": {
+        "path": "GilmoreEvProductsStatefulStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "fb340252bb4022b615c9ccddda7559ae464ca81e681dde2b93a230a50edd1eac.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

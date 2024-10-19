@@ -1,0 +1,232 @@
+{
+  "version": "38.0.1",
+  "artifacts": {
+    "GilmoreEvProductsStatefulStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "GilmoreEvProductsStatefulStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "GilmoreEvProductsStatefulStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "GilmoreEvProductsStatefulStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "notificationArns": [],
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fb340252bb4022b615c9ccddda7559ae464ca81e681dde2b93a230a50edd1eac.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "GilmoreEvProductsStatefulStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "GilmoreEvProductsStatefulStack.assets"
+      ],
+      "metadata": {
+        "/GilmoreEvProductsStatefulStack/Table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "TableCD117FA1"
+            }
+          }
+        ],
+        "/GilmoreEvProductsStatefulStack/Table/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TableCD117FA1"
+          }
+        ],
+        "/GilmoreEvProductsStatefulStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GilmoreEvProductsStatefulStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/GilmoreEvProductsStatefulStack/Exports/Output{\"Fn::GetAtt\":[\"TableCD117FA1\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttTableCD117FA1ArnE2C8C204"
+          }
+        ],
+        "/GilmoreEvProductsStatefulStack/Exports/Output{\"Ref\":\"TableCD117FA1\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefTableCD117FA1D18A8047"
+          }
+        ],
+        "/GilmoreEvProductsStatefulStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/GilmoreEvProductsStatefulStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "GilmoreEvProductsStatefulStack"
+    },
+    "GilmoreEvProductsStatelessStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "GilmoreEvProductsStatelessStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "GilmoreEvProductsStatelessStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "GilmoreEvProductsStatelessStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "notificationArns": [],
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4fdc6fa026792633cf80bd91b4ae023968af1c56d77200a3fd35e413c34d78f8.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "GilmoreEvProductsStatelessStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "GilmoreEvProductsStatefulStack",
+        "GilmoreEvProductsStatelessStack.assets"
+      ],
+      "metadata": {
+        "/GilmoreEvProductsStatelessStack/CreateProductLambda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateProductLambdaServiceRoleDDA15AE7"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/CreateProductLambda/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateProductLambdaServiceRoleDefaultPolicyE1185464"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/CreateProductLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateProductLambda6A261B7D"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiF70053CD"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiDeploymentB17BE62D5e07c19362526c56fdd1a01b872c31c8"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/DeploymentStage.api/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiDeploymentStageapi01526A9D"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiEndpoint4F160690"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Default/v1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Apiv1D42035C8"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Default/v1/products/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Apiv1productsD88BAEED"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Default/v1/products/POST/ApiPermission.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Apiv1productsPOSTApiPermissionGilmoreEvProductsStatelessStackApiF25C2C30POSTv1products3CB6D6A6"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Default/v1/products/POST/ApiPermission.Test.GilmoreEvProductsStatelessStackApiF25C2C30.POST..v1.products": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Apiv1productsPOSTApiPermissionTestGilmoreEvProductsStatelessStackApiF25C2C30POSTv1productsE9F31AC4"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/Api/Default/v1/products/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Apiv1productsPOSTDC96F9B2"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/GilmoreEvProductsStatelessStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "GilmoreEvProductsStatelessStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
