@@ -10,7 +10,7 @@ import { GilmoreEvProductsStatelessStack } from '../stateless/stateless';
 const app = new cdk.App();
 
 // we are going to statically build the dev app in this example
-const staefulStack = new GilmoreEvProductsStatefulStack(
+const statefulStack = new GilmoreEvProductsStatefulStack(
   app,
   'GilmoreEvProductsStatefulStack',
   {
@@ -20,5 +20,5 @@ const staefulStack = new GilmoreEvProductsStatefulStack(
 
 new GilmoreEvProductsStatelessStack(app, 'GilmoreEvProductsStatelessStack', {
   stage: 'dev',
-  table: staefulStack.table,
+  table: statefulStack.table,
 });

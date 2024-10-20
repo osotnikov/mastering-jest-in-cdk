@@ -16,9 +16,7 @@ import { schema } from './create-product.schema';
 const tracer = new Tracer();
 const metrics = new Metrics();
 
-export const createProductAdapter = async ({
-  body,
-}: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const createProductAdapter = async ({body,}: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   try {
     if (!body) throw new ValidationError('no payload body');
 
